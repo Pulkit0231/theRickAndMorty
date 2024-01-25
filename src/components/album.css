@@ -1,0 +1,19 @@
+.main-container {
+    height: calc(100vh - 170px);
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: calc(100% - 52px);
+}
+
+.card-item-container {
+    margin: 10px;
+}
+
+.pagination-container {
+    margin-top: 20px;
+}
