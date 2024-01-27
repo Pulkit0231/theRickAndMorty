@@ -58,9 +58,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
-    //snackbar    
-
-    //snackbar
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
     };
@@ -74,43 +71,27 @@ export default function SearchAppBar({ onSearch }) {
 
 
     return (
-        <div >
-            <Box >
-                <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
-                    <Toolbar className='Toolbar'>
-                        <img
-                            src={rm}
-                            style={{
-                                width: '3rem',
-                                color: 'inherit',
-                                ariaLabel: 'open drawer',
-                            }}
-                            alt="logo"
-                        />
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                        ></Typography>
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{ 'aria-label': 'search' }}
-                                value={searchTerm}
-                                onChange={handleInputChange}
-                                onKeyPress={handleKeyPress}
-                            />
-                        </Search>
-                    </Toolbar>
-                </AppBar>
-            </Box >
-            <div className='bg-img'>
-                <h1 className='text'>The Rick  and Morty API</h1>
+        <div className='searchbar-main-container'>
+            <div className='banner-main-container'>
+                <h1 className='banner-text'>The Rick  and Morty API</h1>
+                <img
+                    src={rm}
+                    alt="logo"
+                    className='main-logo'
+                />
             </div>
-        </div >
+            <Search>
+                <SearchIconWrapper>
+                    <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    onKeyPress={handleKeyPress}
+                />
+            </Search>
+        </div>
     );
 }

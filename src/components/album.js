@@ -16,7 +16,6 @@ const RickAndMortyAlbum = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [errorSnackbarOpen, setErrorSnackbarOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    // const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
     useEffect(() => {
@@ -27,7 +26,6 @@ const RickAndMortyAlbum = () => {
                     : `https://rickandmortyapi.com/api/character/?page=${currentPage}`;
 
                 const response = await axios.get(url);
-                // await delay(5000);
                 if (response?.data?.results && Array.isArray(response?.data?.results)) {
                     setCharacters(response.data.results);
                     setTotalPages(response.data.info.pages);
@@ -36,7 +34,13 @@ const RickAndMortyAlbum = () => {
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
-                setErrorMessage(error.message);
+                let errorMessage = '';
+                if (error.response && error.response.status === 404) {
+                    errorMessage = 'Character not found';
+                } else {
+                    errorMessage = error.message;
+                }
+                setErrorMessage(errorMessage);
                 setErrorSnackbarOpen(true);
             }
         };

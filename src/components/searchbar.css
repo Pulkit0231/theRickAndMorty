@@ -1,22 +1,27 @@
-.text {
-    margin: 0px;
-    color: rgb(32, 35, 41);
-    border: none;
-    z-index: 1;
-    font-size: 6.4rem;
-    text-align: center;
-    line-height: 1.1;
-    position: relative;
-    top: 60px;
-
+.searchbar-main-container {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-bottom: 20px;
 }
 
-.bg-img {
-    background-image: url('./img/output-onlinepngtools.png');
-    background-size: 25%;
-    background-repeat: no-repeat;
-    background-position: center;
+.banner-main-container {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: flex-start;
+    padding-right: 20px;
     align-items: center;
-    justify-content: center;
-    height: 250px;
+}
+
+.banner-text {
+    margin: 0;
+    padding-right: 30px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.main-logo {
+    height: 30px;
 }
