@@ -48,9 +48,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         [theme.breakpoints.up('sm')]: {
-            width: '12ch',
+            width: '20ch',
             '&:focus': {
-                width: '20ch',
+                width: '25ch',
             },
         },
     },
@@ -73,7 +73,7 @@ export default function SearchAppBar({ onSearch }) {
     return (
         <div className='searchbar-main-container'>
             <div className='banner-main-container'>
-                <h1 className='banner-text'>The Rick  and Morty API</h1>
+                <h1 className='banner-text'>The Rick  and Morty Character Finder</h1>
                 <img
                     src={rm}
                     alt="logo"
@@ -85,7 +85,7 @@ export default function SearchAppBar({ onSearch }) {
                     <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
-                    placeholder="Search…"
+                    placeholder="Search Characters…"
                     inputProps={{ 'aria-label': 'search' }}
                     value={searchTerm}
                     onChange={handleInputChange}
