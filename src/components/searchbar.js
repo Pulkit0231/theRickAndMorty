@@ -7,14 +7,19 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import rm from './img/rm512.png';
+import './searchbar.css'
+
 // To be optimized
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: alpha(theme.palette.common.white, 0.08),
+    borderColor: '#dbdbdb',
+    borderWidth: '1px',
+    borderStyle: 'solid',
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: alpha(theme.palette.common.black, 0.1),
     },
     marginLeft: 0,
     width: '100%',
@@ -32,10 +37,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'Black',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
+    color: 'Grey',
     width: '100%',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
@@ -52,7 +58,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
+    //snackbar    
 
+    //snackbar
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
     };
@@ -66,10 +74,10 @@ export default function SearchAppBar({ onSearch }) {
 
 
     return (
-        <div>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" style={{}}>
-                    <Toolbar>
+        <div >
+            <Box >
+                <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+                    <Toolbar className='Toolbar'>
                         <img
                             src={rm}
                             style={{
@@ -95,16 +103,14 @@ export default function SearchAppBar({ onSearch }) {
                                 value={searchTerm}
                                 onChange={handleInputChange}
                                 onKeyPress={handleKeyPress}
-
                             />
                         </Search>
                     </Toolbar>
                 </AppBar>
-
             </Box >
-            <div>
-                <h1>The Rick  and Morty API</h1>
+            <div className='bg-img'>
+                <h1 className='text'>The Rick  and Morty API</h1>
             </div>
-        </div>
+        </div >
     );
 }

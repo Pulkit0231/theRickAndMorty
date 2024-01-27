@@ -1,5 +1,5 @@
 .main-container {
-    height: calc(100vh - 170px);
+    height: calc(100vh - 330px);
 }
 
 .card-container {
@@ -12,8 +12,12 @@
 
 .card-item-container {
     margin: 10px;
+    width: 280px;
 }
 
 .pagination-container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
 }

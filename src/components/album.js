@@ -4,6 +4,9 @@ import SearchAppBar from './searchbar';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import axios from 'axios'; // Import Axios
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import './album.css';
 
 const RickAndMortyAlbum = () => {
@@ -11,6 +14,8 @@ const RickAndMortyAlbum = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [errorSnackbarOpen, setErrorSnackbarOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     // const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
@@ -31,6 +36,8 @@ const RickAndMortyAlbum = () => {
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
+                setErrorMessage(error.message);
+                setErrorSnackbarOpen(true);
             }
         };
 
@@ -46,6 +53,9 @@ const RickAndMortyAlbum = () => {
 
     const handlePageChange = (event, newPage) => {
         setCurrentPage(newPage);
+    };
+    const handleCloseSnackbar = () => {
+        setErrorSnackbarOpen(false);
     };
 
     return (
@@ -74,6 +84,17 @@ const RickAndMortyAlbum = () => {
                     />
                 </Stack>
             </div>
+            <Snackbar
+                open={errorSnackbarOpen}
+                autoHideDuration={4000}
+                onClose={handleCloseSnackbar}
+                message={errorMessage}
+                action={
+                    <IconButton size="small" aria-label="close" color="inherit" onClick={handleCloseSnackbar}>
+                        <CloseIcon fontSize="small" />
+                    </IconButton>
+                }
+            />
         </div>
     );
 };

@@ -1,0 +1,22 @@
+.text {
+    margin: 0px;
+    color: rgb(32, 35, 41);
+    border: none;
+    z-index: 1;
+    font-size: 6.4rem;
+    text-align: center;
+    line-height: 1.1;
+    position: relative;
+    top: 60px;
+
+}
+
+.bg-img {
+    background-image: url('./img/output-onlinepngtools.png');
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+}
