@@ -10,10 +10,17 @@
 .banner-main-container {
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 200%;
     justify-content: flex-start;
     padding-right: 20px;
     align-items: center;
+
+}
+
+@media (max-width: 767px) {
+    .banner-main-container h1 {
+        font-size: 1rem;
+    }
 }
 
 .banner-text {
