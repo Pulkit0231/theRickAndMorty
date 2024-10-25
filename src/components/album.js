@@ -90,6 +90,7 @@ const RickAndMortyAlbum = () => {
             </div>
             <Snackbar
                 open={errorSnackbarOpen}
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                 autoHideDuration={4000}
                 onClose={handleCloseSnackbar}
                 message={errorMessage}
